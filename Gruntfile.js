@@ -1,33 +1,35 @@
 module.exports = function(grunt) {
+  // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-
-    // Begin grunt-phantomas config
-    phantomas : {
-  /* https://github.com/stefanjudis/grunt-phantomas */
-      grunt : {
-        options : {
-          assertions : {
-            assetsWithQueryString : 3,     // receive warning, when there are more than 3 assets with a query string
-            bodyHTMLSize          : 10500, // receive warning, when the bodyHTMLsize is bigger than 10500
-            jsErrors              : 0,     // receive warning, when more than 0 JS errors appear
-            gzipRequests          : {      // receive warning, when less compressed assets are loaded then 10 ( might be useful for checking server configurations )
-              type  : '<',
-              value : 10
-            }
+    phantomas: {
+      default: {
+        options: {
+          indexPath: './zumiez/',
+          options: {},
+          url: 'http://preview7.zumiez.com/'
+        }
+      },
+      screenshot: {
+        options: {
+          indexPath: './zumiez/',
+          options: {
+            'screenshot': 'screenshots/sample-' + Date.now() + '.png'
           },
-          indexPath  : './zumiez/',
-          options    : {
-            'timeout' : 30
+          url: 'http://preview7.zumiez.com/'
+        }
+      },
+      requests: {
+        options: {
+          indexPath: './zumiez/',
+          options: {
+            'assert-requests': 20
           },
-          url        : 'http://www.zumiez.com/storelocator/list/'
-        },
-          numberOfRuns         : 1
-      }
+          url: 'http://preview7.zumiez.com/'
+        }
+      },
     }
-    // End grunt-phantomas config
   });
-
   grunt.loadNpmTasks('grunt-phantomas');
-  grunt.registerTask('default', ['phantomas']);
+  grunt.registerTask('default', ['phantomas:default']);
 };
