@@ -5,27 +5,27 @@ module.exports = function(grunt) {
     phantomas: {
       default: {
         options: {
-          indexPath: './zumiez/',
+          indexPath: './163.com/',
           options: {},
-          url: 'http://preview7.zumiez.com/'
+          url: 'http://mail.163.com/'
         }
       },
       screenshot: {
         options: {
-          indexPath: './zumiez/',
+          indexPath: './163.com/',
           options: {
             'screenshot': 'screenshots/sample-' + Date.now() + '.png'
           },
-          url: 'http://preview7.zumiez.com/'
+          url: 'http://mail.163.com/'
         }
       },
       requests: {
         options: {
-          indexPath: './zumiez/',
+          indexPath: './163.com/',
           options: {
             'assert-requests': 20
           },
-          url: 'http://preview7.zumiez.com/'
+          url: 'http://mail.163.com/'
         }
       },
     }
