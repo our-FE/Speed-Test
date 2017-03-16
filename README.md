@@ -1,4 +1,5 @@
-# Speed-Test
+# phantomas-demo
+speed-test
 Grunt-Phantomas
 
 Install node first at https://nodejs.org/en/
